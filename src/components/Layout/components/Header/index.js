@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Children } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner, faMagnifyingGlass, faEllipsisVertical, faGlobe, faCircleQuestion, faKeyboard } from '@fortawesome/free-solid-svg-icons';
@@ -16,18 +16,36 @@ const cx = classNames.bind(styles);
 const  MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faGlobe} />,
-        title: 'abc'
+        title: 'abc',
+        children: {
+             title:'Language',
+             data:[
+                {
+                    code:'en',
+                    title:'English'       
+                },
+                {
+                    code:'vi',
+                    title:'Tiếng Việt'       
+                },
+                {
+                    code:'jp',
+                    title:'Japan'       
+                },
+             ],
+        },
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
         title: 'Feedback and Help',
-        to:'/feedback'
+        to:'/feedback',
     },
     {
         icon: <FontAwesomeIcon icon={faKeyboard} />,
-        title: 'Keyboard shortcuts'
+        title: 'Keyboard shortcuts',
     }
-]
+];
+
 function Header() {
     const [searchResult, setSearchResult] = useState([]);
     const show = () => setSearchResult(true);
@@ -38,8 +56,11 @@ function Header() {
             setSearchResult([])
         }, 5000) 
     }
+)
+    // Handle logic
+    const handleMenuChange = (menuItem) => {
 
-    )
+    }    
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
@@ -83,6 +104,7 @@ function Header() {
 
                     <Menu
                         items ={MENU_ITEMS}
+                        onChange={handleMenuChange}
                     >
                     <button className={cx('more-btn')}>
                     <FontAwesomeIcon icon={faEllipsisVertical}/>
