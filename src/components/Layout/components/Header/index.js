@@ -1,4 +1,4 @@
-import { useState, useEffect, Children } from 'react';
+import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -10,7 +10,6 @@ import {
     faCircleQuestion,
     faKeyboard,
     faCloudUpload,
-    faMessage,
     faUser,
     faCoins,
     faGear,
@@ -26,9 +25,10 @@ import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { MessageIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
-
 
 const MENU_ITEMS = [
     {
@@ -80,8 +80,8 @@ function Header() {
         switch (menuItem.type) {
             case 'language':
                 // Handle language
-                break
-            default:    
+                break;
+            default:
         }
     };
 
@@ -101,13 +101,13 @@ function Header() {
             title: 'Settings',
             to: '/settings',
         },
-        
-         ...MENU_ITEMS,
-         {
+
+        ...MENU_ITEMS,
+        {
             icon: <FontAwesomeIcon icon={faSignOut} />,
             title: 'Log out',
             to: '/logout',
-            separate:true,
+            separate: true,
         },
     ];
 
@@ -149,13 +149,12 @@ function Header() {
                     {currentUser ? (
                         <>
                             <Tippy delay={[]} content="Upload video" placement="bottom">
+                                <button className={cx('action-btn')}>
+                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                </button>
+                            </Tippy>
                             <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faCloudUpload} />
-                            </button>
-                            
-                            </Tippy>  
-                            <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faMessage} />
+                                <MessageIcon />
                             </button>
                         </>
                     ) : (
@@ -164,11 +163,14 @@ function Header() {
                             <Button primary>Log in</Button>
                         </>
                     )}
-                    <Menu items= {currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
+                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img src='https://scontent.fhan18-1.fna.fbcdn.net/v/t1.15752-9/312962503_465172805464694_3774174893424070293_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=7babg4CsiosAX9UgY-s&_nc_ht=scontent.fhan18-1.fna&oh=03_AdTlQBkCF1wRt_w6R0A6BEo8AAobOqd4pkO0KCzLiBkufQ&oe=638207E2' 
-                            className={cx('user-avatar')} 
-                            alt="Nguyen Van A" />
+                            <Image
+                                src="hsttps://scontent.fhan18-1.fna.fbcdn.net/v/t1.15752-9/312962503_465172805464694_3774174893424070293_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=7babg4CsiosAX9UgY-s&_nc_ht=scontent.fhan18-1.fna&oh=03_AdTlQBkCF1wRt_w6R0A6BEo8AAobOqd4pkO0KCzLiBkufQ&oe=638207E2"
+                                className={cx('user-avatar')}
+                                alt="Nguyen Van A"
+                                fallback="https://scontent.fhan18-1.fna.fbcdn.net/v/t1.15752-9/259698456_952796938983773_6293294570597152880_n.png?_nc_cat=110&ccb=1-7&_nc_sid=ae9488&_nc_ohc=31pnshjK2eQAX_uQe3t&_nc_ht=scontent.fhan18-1.fna&oh=03_AdQzfnLN2R-ZDWSrcB7X4IQUnizU_pq-WOz2Q_mfsAAOmg&oe=63897E39"
+                            />
                         ) : (
                             <button className={cx('more-btn')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
