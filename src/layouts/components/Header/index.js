@@ -19,7 +19,7 @@ import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { Link } from 'react-router-dom';
-import routes from '~/config/routes';
+import config from '~/config';
 import Menu from '~/components/Popper/Menu';
 import { MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
@@ -106,7 +106,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link className={cx('logo-link')} to="routesConfig.home"><img src={images.logo} alt="Tik tok" /></Link>
+                <Link to={config.routes.home} className={cx('logo-link')} ><img src={images.logo} alt="Tik tok" /></Link>
 
                 <Search/>
 
