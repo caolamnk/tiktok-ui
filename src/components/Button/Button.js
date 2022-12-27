@@ -9,6 +9,7 @@ function Button({
     to,
     href,
     primary = false,
+    normalButton = false,
     outline = false,
     text = false,
     rounded = false,
@@ -21,6 +22,7 @@ function Button({
     rightIcon,
     leftIcon,
     onClick,
+
     ...passProps
 }) {
     let Comp = 'button';

@@ -82,3 +82,14 @@
     padding:14px 16px;
     min-width: 140px;
 }
+.normalButton {
+    min-width: 88px;
+    padding: 4px 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    
+    &:hover {
+        text-decoration: underline;
+    }
+
+}

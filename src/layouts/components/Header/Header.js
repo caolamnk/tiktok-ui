@@ -131,7 +131,7 @@ function Header() {
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
                             <Image
-                                src="hsttps://scontent.fhan18-1.fna.fbcdn.net/v/t1.15752-9/312962503_465172805464694_3774174893424070293_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=ae9488&_nc_ohc=7babg4CsiosAX9UgY-s&_nc_ht=scontent.fhan18-1.fna&oh=03_AdTlQBkCF1wRt_w6R0A6BEo8AAobOqd4pkO0KCzLiBkufQ&oe=638207E2"
+                                src="https://cf.shopee.vn/file/41ce94f6b732c0747d8da0c4bf25e522"
                                 className={cx('user-avatar')}
                                 alt="Nguyen Van A"
                                 fallback="https://scontent.fhan18-1.fna.fbcdn.net/v/t1.15752-9/259698456_952796938983773_6293294570597152880_n.png?_nc_cat=110&ccb=1-7&_nc_sid=ae9488&_nc_ohc=31pnshjK2eQAX_uQe3t&_nc_ht=scontent.fhan18-1.fna&oh=03_AdQzfnLN2R-ZDWSrcB7X4IQUnizU_pq-WOz2Q_mfsAAOmg&oe=63897E39"
