@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 
 import styles from './Discovery.module.scss';
-/* import PropTyles from 'prop-types'; */
+import PropTypes from 'prop-types'
 import Button from '~/components/Button';
 import { MusicDiscover, TopDiscover } from '~/components/Icons';
 
@@ -68,5 +68,9 @@ function DiscoveryItem({ to, label }) {
         </div>
     );
 }
+DiscoveryItem.protoTypes = {
+    label: PropTypes.string.isRequired,
+    to: PropTypes.string,
+};
 
 export default DiscoveryItem;

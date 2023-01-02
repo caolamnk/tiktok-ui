@@ -15,6 +15,7 @@ import {
 } from '~/components/Icons';
 import SuggestedAccounts from '~/components/SuggestedAccounts';
 import * as userService from '~/services/userService';
+import Footer from './Footer/FooterSidebar';
 
 
 
@@ -125,7 +126,8 @@ function Sidebar() {
                  label="Khám phá"
                  to={config.routes.home}
              /> 
-                
+
+            <Footer/>    
            
         </aside>
     );

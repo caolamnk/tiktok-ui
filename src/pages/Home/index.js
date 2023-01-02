@@ -1,5 +1,11 @@
+import Video from "~/layouts/components/Video/Video";
+
 function Home() {
-    return <h2> Home page</h2>;
+    return (
+        
+        < Video />
+    )
+   
 }
 
 export default Home;
