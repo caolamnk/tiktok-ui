@@ -1,13 +1,15 @@
 import classNames from 'classnames/bind';
 import HeadlessTippy from '@tippyjs/react/headless';
-
+import { useEffect } from 'react';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountPreview from '~/components/SuggestedAccounts/AccountPreview';
 import Image from '~/components/Image';
+import { AuthUserContext } from '~/App';
+import * as userService from '~/services/userService'
 
 import styles from './Video.module.scss';
-import { useEffect } from 'react';
+
 
 const cx = classNames.bind(styles);
 
@@ -26,8 +28,9 @@ function Video({ video }) {
   
 
     return(
+        
     <div className={cx('containerContent')}>
-         <HeadlessTippy interactive delay={[0,500]} offset={[12,8]} render={preview} placement="bottom-start">
+         <HeadlessTippy interactive delay={[0,500]} offset={[12,8]} render={preview} placement="bottom-start" touch={false}>
             <a href={`@${video.user.nickname}`} className={cx('videoLink')}>
                 <Image
                 src={video.user.avatar}
@@ -40,11 +43,13 @@ function Video({ video }) {
             </a>
 
          </HeadlessTippy>
-         
+
+                  
     </div>
+    
 
     )
 
-}
+} 
 
 export default Video;

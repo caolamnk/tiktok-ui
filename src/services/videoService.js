@@ -1,7 +1,7 @@
 import * as httpRequet from '~/utils/httpRequet';
 
 
-export const search = async (type, page, accessToken = '') => {
+export const getVideos = async (type, page, accessToken = '') => {
     try {
         const res = await httpRequet.get('video', {
            
@@ -19,4 +19,4 @@ export const search = async (type, page, accessToken = '') => {
     } catch (error) {
         console.log(error)
     }
-};
+};  
