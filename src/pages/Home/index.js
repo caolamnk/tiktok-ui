@@ -1,8 +1,9 @@
-import Video from "~/layouts/components/Video/Video";
+import Video from "~/layouts/components/Video";
+
 
 function Home() {
     return (
-        <Video h1="sss"/>
+        <Video/>
       
     )
    
